@@ -84,6 +84,7 @@ public:
 	float getTimeDiff() const { return time_diff; }
 	
 	bool isJamSyncing() const { return is_jam_syncing; }
+	bool isSyncing() const { return fabs(time_diff) < precision; }
 	
 	void setFreeWhellTime(float v) { freewheel_time = v; }
 	float getFreeWheelTime() const { return freewheel_time; }

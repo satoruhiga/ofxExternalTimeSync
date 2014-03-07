@@ -74,16 +74,17 @@ public:
 		}
 	}
 
+	inline void setSyncEnable(bool yn) { sync_enable = yn; }
+	inline bool getSyncEnable() const { return sync_enable; }
+	
 	inline float getTimeDiff() const { return time_diff; }
 
+	inline bool isSyncing() const { return sync_enable && fabs(time_diff) < precision; }
 	inline bool isJamSyncing() const { return is_jam_syncing; }
 
 	inline void setFreeWhellTime(float v) { freewheel_time = v; }
 	inline float getFreeWheelTime() const { return freewheel_time; }
 	
-	inline void setSyncEnable(bool yn) { sync_enable = yn; }
-	inline bool getSyncEnable() const { return sync_enable; }
-
 protected:
 	float precision;
 	float time_diff;
